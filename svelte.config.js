@@ -19,7 +19,7 @@ const config = {
 						// 'rsw-test',
 						// https://github.com/lencx/vite-plugin-rsw/issues/8#issuecomment-820281861
 						// outDir: use `path.resolve` or relative path.
-						{ name: 'markdown-wasm', outDir: './pkg' }
+						{ name: 'markdown_wasm', outDir: './pkg' }
 					]
 				})
 			]

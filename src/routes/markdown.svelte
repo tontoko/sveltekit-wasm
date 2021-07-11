@@ -4,11 +4,11 @@
 </script>
 
 <script lang="typescript">
-	// import { pulldown_cmark, greet } from '../../markdown-wasm/pkg/markdown_wasm';
-	import init from '../../markdown-wasm/pkg/markdown_wasm_bg.wasm';
+	// import { pulldown_cmark, greet } from '../../markdown_wasm/pkg/markdown_wasm';
+	import init from '../../markdown_wasm/pkg/markdown_wasm_bg.wasm';
 
 	// let wasmContainer: { pulldown_cmark: typeof pulldown_cmark, greet: typeof greet };
-	// import('../../markdown-wasm/pkg').then((wasm) => (wasmContainer = wasm));
+	// import('../../markdown_wasm/pkg').then((wasm) => (wasmContainer = wasm));
 
 	let text = '';
 	const handleTextChange = async () => {
