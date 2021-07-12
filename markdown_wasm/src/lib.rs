@@ -18,6 +18,11 @@ pub fn greet() {
     alert("Hello, markdown-wasm!");
 }
 
+// #[wasm_bindgen]
+// pub fn greet() -> String {
+//     "Hello, wasm-game-of-life!".into()
+// }
+
 use pulldown_cmark::{html, Options, Parser};
 
 #[wasm_bindgen]
