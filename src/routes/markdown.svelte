@@ -4,7 +4,7 @@
 </script>
 
 <script lang="typescript">
-import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	let text = '';
 	let html = '';
 	let init
