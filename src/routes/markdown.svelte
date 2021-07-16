@@ -4,22 +4,31 @@
 </script>
 
 <script lang="typescript">
+import { wasm_boot } from '$lib/wasm_boot';
+
 	import { onMount } from 'svelte';
 	let text = '';
 	let html = '';
-	let init
+	// let init
 	let pulldown_cmark
 	
 	onMount(async () => {
-		const i = await import('../../markdown_wasm/pkg/markdown_wasm')
-		init = i.default
-		pulldown_cmark = i.pulldown_cmark
+		// const i = await import('../../markdown_wasm/pkg/markdown_wasm')
+		// init = i.default
+		// pulldown_cmark = i.pulldown_cmark
+		const {pulldown_cmark: _pulldown_cmark} = await wasm_boot('../../markdown_wasm/pkg/markdown_wasm')
+		pulldown_cmark = _pulldown_cmark
 	})
+
+	const handleTextChange = (_text: string) => {
+		// if (!init) return
+		if (!pulldown_cmark) return
+		// await init();
+		html = pulldown_cmark(_text);
+	}
 		
-	const handleTextChange = async () => {
-		if (!init) return
-		await init();
-		html = pulldown_cmark(text);
+	$: {
+		handleTextChange(text)
 	};
 </script>
 
@@ -28,7 +37,7 @@
 </svelte:head>
 
 <div class="content">
-	<textarea on:keydown={handleTextChange} bind:value={text} />
+	<textarea bind:value={text} />
 	{@html html}
 </div>
 

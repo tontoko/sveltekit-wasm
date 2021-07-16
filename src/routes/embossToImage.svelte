@@ -7,13 +7,16 @@
 	import { writable, derived } from 'svelte/store';
 	import type { Writable, Readable } from 'svelte/store';
 	import { onMount } from 'svelte';
+import { wasm_boot } from '$lib/wasm_boot';
 	let wasmInit
 	let add_emboss_to_image
 	
 	onMount(async () => {
-		const i = await import('../../markdown_wasm/pkg/markdown_wasm')
-		wasmInit = i.default
-		add_emboss_to_image = i.add_emboss_to_image
+		// const i = await import('../../markdown_wasm/pkg/markdown_wasm')
+		// wasmInit = i.default
+		// add_emboss_to_image = i.add_emboss_to_image
+		const {	add_emboss_to_image: _add_emboss_to_image} = await wasm_boot('../../markdown_wasm/pkg/markdown_wasm')
+		add_emboss_to_image = _add_emboss_to_image
 	})
 	
 	let files: Writable<FileList> = writable();
@@ -39,7 +42,7 @@
         canvas.width = width;
         canvas.height = height;
         ctx.drawImage(img, 0, 0, width, height);
-				await wasmInit()
+				// await wasmInit()
 				const res = add_emboss_to_image(canvas, ctx)
 				set(res)
 			}
