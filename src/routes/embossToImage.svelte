@@ -75,6 +75,7 @@ import { wasm_boot } from '$lib/wasm_boot';
 </svelte:head>
 
 <div class="content">
+	<a href="/markdown">goto markdown</a>
 	<input type="file" accept="jpg,png" bind:files={$files} />
 	<div>
 		<p>before</p>

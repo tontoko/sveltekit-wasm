@@ -1,6 +1,7 @@
 import preprocess from 'svelte-preprocess';
 import { ViteRsw } from 'vite-plugin-rsw';
-import adapter from '@sveltejs/adapter-static';
+import staticAdapter from '@sveltejs/adapter-static';
+import nodeAdapter from '@sveltejs/adapter-node';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,13 +10,15 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		// adapter: adapter({
-		// 	// default options are shown
-		// 	// pages: 'build',
-		// 	// assets: 'build',
-		// 	// fallback: null
-		// 	fallback: '200.html'
-		// }),
+		adapter: staticAdapter({
+			// default options are shown
+			// pages: 'build',
+			// assets: 'build',
+			// fallback: null
+			// fallback: '200.html'
+		}),
+		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+		// adapter: { adapt: ({ utils }) => nodeAdapter(utils) },
 		// ssr: false,
 		// prerender: {
 		// 	enabled: false

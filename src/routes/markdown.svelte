@@ -37,6 +37,7 @@ import { wasm_boot } from '$lib/wasm_boot';
 </svelte:head>
 
 <div class="content">
+	<a href="/embossToImage">goto embossToImage</a>
 	<textarea bind:value={text} />
 	{@html html}
 </div>
