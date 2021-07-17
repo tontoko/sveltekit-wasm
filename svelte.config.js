@@ -10,15 +10,15 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: staticAdapter({
-			// default options are shown
-			// pages: 'build',
-			// assets: 'build',
-			// fallback: null
-			// fallback: '200.html'
-		}),
-		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-		// adapter: { adapt: ({ utils }) => nodeAdapter(utils) },
+		// adapter: staticAdapter({
+		// 	// default options are shown
+		// 	// pages: 'build',
+		// 	// assets: 'build',
+		// 	// fallback: null
+		// 	// fallback: '200.html'
+		// }),
+		// ssr: false,
+		adapter: nodeAdapter(),
 		// ssr: false,
 		// prerender: {
 		// 	enabled: false
